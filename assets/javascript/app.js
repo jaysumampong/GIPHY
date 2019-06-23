@@ -1,6 +1,6 @@
 $(document).ready(function(){
     topics = ["Avengers", "Kill Bill", "Harry Potter", "Avatar", "Lord of The Rings"];
-    // i dont understand why my API wont work fdafsfadsfasfasdfas
+    // i dont understand why my AJAX wont work fdafsfadsfasfasdfas
     function callAjax(){
         let movies = $(this).attr("data-movie");
         let queryURL = "https://api.giphy.com/v1/gifs/search?q=" + 
@@ -20,9 +20,6 @@ $(document).ready(function(){
                         let movieImage = $("<img>");
                         movieImage.attr("id", "giphy");
                         movieImage.attr("src", results[i].fixed_height.url);
-                        movieImage.attr("data-animate", results[i].fixed_height.url);
-                        movieImage.attr("data-still", results[i].fixed_height.still.url);
-                        movieImage.attr("data-animate", "still");
                         movieDiv.append(p);
                         movieDiv.append(movieImage);
                 }
@@ -35,7 +32,7 @@ $(document).ready(function(){
         $("#gif-buttons").empty();
         for (let i = 0; i < topics.length; i++) {
             let initialButton = $("<button>");
-            initialButton.addClass("movie");
+            initialButton.addClass("button-color");
             initialButton.attr("data-movie", topics[i]);
             initialButton.text(topics[i]);
             $("#gif-buttons").prepend(initialButton);
@@ -51,6 +48,7 @@ $(document).ready(function(){
        let buttonItem = $("<button>");
        
        buttonItem.attr("id", "item-" + buttonCount);
+       buttonItem.addClass("button-color");
        buttonItem.text(newButtonsTask);
        
        buttonItem = buttonItem.prepend(newButtonsTask);
