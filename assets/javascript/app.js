@@ -47,7 +47,8 @@ $(document).ready(function(){
        let newButtonsTask = $("#add-gif").val().trim();
        let buttonItem = $("<button>");
        
-       buttonItem.attr("id", "item-" + buttonCount);
+       buttonItem.attr("id", "item- " + buttonCount);
+       buttonItem.attr("data-movie");
        buttonItem.addClass("button-color");
        buttonItem.text(newButtonsTask);
        
