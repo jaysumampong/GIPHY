@@ -1,6 +1,6 @@
 $(document).ready(function(){
     topics = ["Avengers", "Kill Bill", "Harry Potter", "Avatar", "Lord of The Rings"];
-    // i dont understand why my AJAX wont work fdafsfadsfasfasdfas
+    // Having a hard time trying to get the buttons to perform ajax calls
     function callAjax(){
         let movies = $(this).attr("data-movie");
         let queryURL = "https://api.giphy.com/v1/gifs/search?q=" + 
@@ -19,7 +19,10 @@ $(document).ready(function(){
                         let p = $("<p>").text("Rating: " + results[i].rating);
                         let movieImage = $("<img>");
                         movieImage.attr("id", "giphy");
-                        movieImage.attr("src", results[i].fixed_height.url);
+                        movieImage.attr("src", results[i].images.fixed_height_small.url);
+                        movieImage.attr("data-still",results[i].images.fixed_height_small_still.url);
+                        movieImage.attr("data-animate",results[i].images.fixed_height_small.url); 
+                        movieImage.attr("data-state", "still"); 
                         movieDiv.append(p);
                         movieDiv.append(movieImage);
                 }
@@ -38,23 +41,29 @@ $(document).ready(function(){
             $("#gif-buttons").prepend(initialButton);
         };
     } initialDisplay();
-    // 
-
+  
     // creates new gif buttons
    $("#add-submit").on("click", function(event){
        event.preventDefault();
-       let buttonCount = 0;
        let newButtonsTask = $("#add-gif").val().trim();
        let buttonItem = $("<button>");
        
-       buttonItem.attr("id", "item- " + buttonCount);
        buttonItem.attr("data-movie");
        buttonItem.addClass("button-color");
        buttonItem.text(newButtonsTask);
-       
        buttonItem = buttonItem.prepend(newButtonsTask);
        $("#gif-buttons").append(buttonItem);
        $("add-gif").val("");
-       buttonCount++;
    });
+    //event listener that changes gifs from animated to still    
+   $(document).on("click", "#giphy", function(){
+    var state = $(this).attr('data-state');
+    if ( state == 'still'){
+        $(this).attr('src', $(this).data('animate'));
+        $(this).attr('data-state', 'animate');
+    }else{
+        $(this).attr('src', $(this).data('still'));
+        $(this).attr('data-state', 'still');
+    }
+});
 });
