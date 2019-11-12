@@ -1,25 +1,41 @@
 .movie {
     display: inline-block;
     background-color: #92a8d1;
-    /* color: white; */
+    color: white;
     border-radius: 4px;
     box-shadow: 0 8px 16px 0 rgba(87, 80, 80, 0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-    margin: 2px;
+    margin: 7px;
 }
 
 .container {
     float:right;
+    width: 30%;
 }
-
 
 #gifs {
     width: 70%;
     float: left;
-    /* margin: 30px; */
 }
 
+.movie-buttons {
+    display: inline-block;
+    background-color: #92a8d1;
+    border-radius: 4px;
+    box-shadow: 0 8px 16px 0 rgba(87, 80, 80, 0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    margin: 2px;
 
+}
 
-.title {
+/* header {
+    background-color: blueviolet;
+    display: inline-block;
+    padding: 20px;
+    text-align: center;
+}
+
+footer {
+    background-color: grey;
+    padding: 20px;
+    text-align: center;
     
-}
+} */
