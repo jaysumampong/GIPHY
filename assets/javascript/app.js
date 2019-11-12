@@ -1,5 +1,6 @@
 $(document).ready(function(){
-    topics = ["Avengers", "Kill Bill", "Harry Potter", "Avatar", "Lord of The Rings"];
+    topics = ["Avengers", "Kill Bill", "Harry Potter", "Avatar", "Lord of The Rings", "John Wick", "Pulp Fiction", 
+            "Reservoir Dogs", "Princess Mononoke", "Gladiator"];
     // function to display gifs
     function callAjax(){
         let movies = $(this).attr("data-name");
@@ -8,7 +9,7 @@ $(document).ready(function(){
 
         $.ajax({
             url: queryURL,
-            method: "GET"
+            method: "GET"   
         })
         .then(function(response){
             console.log(response);
@@ -16,8 +17,8 @@ $(document).ready(function(){
                 for (let i = 0; i < results.length; i++){
                     if (results[i].rating !== "r" && results[i].rating !== "pg-13"){
                         let movieDiv = $("<div class='movie'>");
-                        let p = $("<p>").text("Rating: " + results[i].rating);
-                        let movieImage = $("<img>");
+                        let p = $("<p class='title'>").text("Rating: " + results[i].rating);
+                        let movieImage = $("<img class='image'>");
                         movieImage.attr("id", "giphy");
                         movieImage.attr("src", results[i].images.fixed_height_small.url);
                         movieImage.attr("data-still",results[i].images.fixed_height_small_still.url);
@@ -36,7 +37,7 @@ $(document).ready(function(){
         $("#gif-buttons").empty();
         for (let i = 0; i < topics.length; i++) {
             let initialButton = $("<button>");
-            initialButton.addClass("movie");
+            initialButton.addClass("movie-buttons");
             initialButton.attr("data-name", topics[i]);
             initialButton.text(topics[i]);
             $("#gif-buttons").prepend(initialButton);
@@ -54,7 +55,7 @@ $(document).ready(function(){
     initialDisplay();
     
     //event listener that changes gifs from animated to still    
-    $(document).on("click", ".movie", callAjax);
+    $(document).on("click", ".movie-buttons", callAjax);
     
     $(document).on("click", "#giphy", function(){
         var state = $(this).attr('data-state');
