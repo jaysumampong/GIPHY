@@ -20,13 +20,30 @@ body {
     display: inline-block;
     color: black;
     border-radius: 4px;
-    /* box-shadow: 0 8px 16px 0 rgba(87, 80, 80, 0.2), 0 6px 20px 0 rgba(0,0,0,0.19); */
     margin: 7px;
 }
 
 .form {
+    height: 100%;
+    background-color: white;
     float:right;
-    width: 30%;
+    width: 28%;
+    border-style: solid;
+    text-align: center;
+    position: relative;
+    bottom: 29px;
+
+}
+
+.form h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 30px;
+    text-decoration: underline;
+}
+
+#add-gif {
+    border-style: solid;
+    border-color: black;
 }
 
 #gifs {
@@ -36,11 +53,13 @@ body {
 }
 
 .movie-buttons {
+    border-color: black;
     display: inline-block;
     background-color: #1CD786;
     /* border-radius: 4px; */
     box-shadow: 0 8px 16px 0 rgba(87, 80, 80, 0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
     margin: 2px;
+    margin-top: 5px;
 
 }
 
@@ -53,6 +72,7 @@ body {
     font-size: 30px;
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
+    border-style: solid;
 }
 
 
